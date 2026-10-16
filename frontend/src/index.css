@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap');
+@import 'leaflet/dist/leaflet.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#F7F8F7] text-[#1F2937] antialiased min-h-screen font-sans;
+  }
+
+  [dir="rtl"] {
+    font-family: 'Noto Nastaliq Urdu', 'Noto Sans Arabic', system-ui, sans-serif;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Civic UI styles */
+.civic-card {
+  @apply bg-white rounded-xl border border-[#E5E7EB] shadow-sm transition-all duration-200;
+}
+
+.civic-card:hover {
+  @apply shadow-md border-[#D1D5DB];
+}
+
+.civic-btn-primary {
+  @apply inline-flex items-center justify-center font-medium rounded-lg px-5 py-2.5 bg-[#006600] text-white hover:bg-[#01411C] active:scale-[0.98] transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-[#006600]/40 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.civic-btn-secondary {
+  @apply inline-flex items-center justify-center font-medium rounded-lg px-5 py-2.5 bg-white text-[#1F2937] border border-[#E5E7EB] hover:bg-gray-50 active:scale-[0.98] transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-300 disabled:opacity-50;
+}
+
+/* Subtle Pulse for live recording */
+@keyframes audio-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 15px rgba(220, 38, 38, 0);
+  }
+}
+
+.animate-pulse-recording {
+  animation: audio-pulse 1.8s infinite ease-in-out;
+}
